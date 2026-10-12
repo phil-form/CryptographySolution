@@ -1,0 +1,24 @@
+@CryptographySolution_HostAddress = https://localhost:7231
+
+### Créer un utilisateur
+POST {{CryptographySolution_HostAddress}}/api/user
+Content-Type: application/json
+
+{ "username": "alice", "password": "Test1234=", "secretMessage": "Mon secret" }
+
+### Login (retourne le secretMessage déchiffré)
+POST {{CryptographySolution_HostAddress}}/api/user/login
+Content-Type: application/json
+
+{ "username": "alice", "password": "Test1234=" }
+
+### Envoyer un message (chiffré RSA avec la clé publique du destinataire)
+POST {{CryptographySolution_HostAddress}}/api/message
+Content-Type: application/json
+
+{ "message": "Coucou", "senderId": 1, "receiverId": 1 }
+
+### Messages reçus (déchiffrés)
+GET {{CryptographySolution_HostAddress}}/api/message/1
+
+###

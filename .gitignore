@@ -1,0 +1,5 @@
+.idea/*
+CryptographySolution/bin
+CryptographySolution/obj
+# Secrets : le .bin n'est déchiffrable que sur cette machine, les fichiers en clair ne doivent jamais être commités
+CryptographySolution/Secrets/
